@@ -2,6 +2,8 @@
 -- MY Default awesome theme --
 ------------------------------
 
+local awful = require("awful")
+
 G_THEMEDIR = awful.util.getdir("config") .. "/themes/" -- name of this folder
 G_THEMENAME = "MY_default"                -- must be the name of the theme's folder
 G_T = G_THEMEDIR .. G_THEMENAME .. "/"
