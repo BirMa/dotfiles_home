@@ -77,7 +77,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/mw/.config/awesome/themes/MY_default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/MY_default/theme.lua")
 
 -- Application launches
 terminal_cmd = "urxvtc"
