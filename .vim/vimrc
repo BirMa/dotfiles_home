@@ -1,0 +1,215 @@
+" Vundle stuff
+set nocompatible
+
+" required by vundle
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" My Bundles :
+" repos on github
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/shuffle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+" For YCM
+autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
+
+
+set autoindent
+set backspace=indent,eol,start
+set backup
+set backupdir=~/.vim/backup " where to put backup files
+set complete=.,w,b,u,t,i,d
+set completeopt=menuone,longest,preview
+set directory=~/.vim/tmp " directory to place swap files in
+set viminfo='50,s1000,h,n~/vim/viminfo
+set encoding=utf-8
+set expandtab
+set fillchars=vert:\ ,stl:\ ,stlnc:\ ,
+set formatoptions=crq2j
+set gdefault
+set guicursor=n-v-c:block-Cursor/lCursor-blinkoff500-blinkon800,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set guioptions=aci
+set history=500
+set hlsearch
+set icon
+set ignorecase
+set incsearch
+set laststatus=2
+set linebreak
+set linespace=1 "amount of extra space between rows
+set listchars=precedes:…,extends:…,tab:>-,nbsp:.,trail:.,eol:<
+set matchtime=3
+set mouse=a
+set noerrorbells
+set nofoldenable
+set nosmartindent
+set novisualbell
+set number
+set printheader=%<%F%=Seite\ %N
+set printoptions=left:10pc,right:10pc,top:5pc,bottom:5pc,number:y
+set report=0
+set ruler
+set scrolloff=3
+set shiftwidth=2
+set shortmess=aoOTI
+set showbreak=\>\ 
+set showcmd
+set showmatch
+set showmode
+set sidescrolloff=5
+set smartcase
+set softtabstop=2
+set spelllang=de,en
+set spellsuggest=double,10
+set statusline=%F\ #%n\ %m%r%w%y%([%{&fenc}]%)%=[0x%B\|%b]\ [%v-%l\|%L]\ %P
+set switchbuf=useopen,usetab
+set tabstop=2
+set title
+set titleold=""
+set ttyfast
+set virtualedit=block
+set wildignore=*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.dll,*.o,*.obj,*.exe,*~,moc_*
+set wildmenu
+set wildmode=list:longest,full
+
+let &guifont="Monospace Regular 10"
+
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_max_diagnostics_to_display = 100
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'notes' : 1,
+      \ 'text' : 1,
+      \}
+
+" abbrevs
+cabbrev Wq wq
+cabbrev W w
+cabbrev Q q
+
+" remove double lines
+" %s/^\(.*\)\(\n\1\)\+$/\1/
+
+" Sonstige Tasten
+nmap <F1> ^
+xmap <F1> ^
+imap <F1> <home>
+
+nmap <F5>   :w<CR>
+nmap <S-F5> :w!<CR>
+nmap <F9>   :e<CR>
+nmap <S-F9> :e!<CR>
+
+" force ycm and syntastic to recheck
+nmap <F8> :YcmForceCompileAndDiagnostics<CR>
+
+" line joining with control j
+nnoremap <c-j> <s-j>
+vnoremap <c-j> <s-j>
+
+" easier scrolling
+nmap <s-j> <c-e>
+vmap <s-j> <c-e>
+nmap <s-k> <c-y>
+vmap <s-k> <c-y>
+
+nmap . .`[
+vnoremap <silent> . :normal .<CR>
+
+" disable highlighting
+map <silent> <A-n> :nohl<CR>
+
+" move lines up and down
+nnoremap <A-j> :m+<CR>==
+nnoremap <A-k> :m-2<CR>==
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+vnoremap <A-j> :m'>+<CR>gv=gv
+vnoremap <A-k> :m-2<CR>gv=gv
+
+" make search with regexp unannoying
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+
+" use ,F to jump to tag in a vertical split
+" nnoremap ,F :let word=expand(""):vsp:wincmd w:exec("tag ". word) <- invalid expression
+" use ,gf to go to file in a vertical split
+nnoremap ,gf :vertical botright wincmd f<CR>
+
+" go to next/pref buffer
+nmap <silent> <F11> :bN<CR>
+nmap <silent> <F12> :bn<CR>
+
+" Change font size
+function! AdjustFontSize(amount)
+  let newsize = substitute(&guifont, '^\(.* \)\(\d\+\)$', '\2', '') + a:amount
+  if (newsize >= 1) && (newsize <= 50)
+    let newfont = substitute(&guifont, '^\(.* \)\(\d\+\)$', '\1', '') . newsize
+    let &guifont = newfont
+  endif
+endfunction
+noremap <silent> <C-UP> :call AdjustFontSize(+1)<CR>
+noremap <silent> <C-DOWN> :call AdjustFontSize(-1)<CR>
+noremap <silent> <C-h> :let &guifont="Monospace Regular 10"<CR>
+
+" python3 calc
+:command! -nargs=+ Calc :py print(<args>)
+:py from math import *
+
+" treat .tex-files as latex-files
+let g:tex_flavor='latex'
+
+" Syntaxeinfärbung
+syntax on
+colorscheme MYdarkbone
+
+" functions
+noremap <silent> <F4> :call ToggleWrap()<CR>
+:let &wrap = !&wrap
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    " set virtualedit=all
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    " set virtualedit=
+    setlocal display+=lastline
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction
+
