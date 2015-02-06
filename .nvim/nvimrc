@@ -36,6 +36,7 @@ set backupdir=~/.nvim/backup " where to put backup files
 set complete=.,w,b,u,t,i,d
 set completeopt=menuone,longest,preview
 set directory=~/.nvim/tmp " directory to place swap files in
+set viminfo='50,s1000,h,n~/nvim/nviminfo
 set encoding=utf-8
 set expandtab
 set fillchars=vert:\ ,stl:\ ,stlnc:\ ,
