@@ -1,0 +1,101 @@
+" Theme:
+
+:colorscheme obsidian
+
+" Settings:
+" set activate=quickmark,paste
+" set complete=slfb
+set complete=slf
+set noautocomplete
+set noscrollbars
+set hlsearch
+set tabnumbers
+set titlestring=
+set novisualbell
+set focuscontent
+set showstatuslinks=2
+set gui=none,tabs,addons
+set hintinputs=label,value,name
+
+" z.T. von http://www.vimperl.de/os/vimperator.html#vimperatorrc
+" Schnelleres Scrolling :
+noremap j <down>
+noremap k <up>
+noremap h <C-left>
+noremap l <C-right>
+" noremap j 4j
+" noremap k 4k
+" noremap <C-j> 10j
+" noremap <C-k> 10k
+
+" routerUI:
+map <c-f> :tabopen http://fritz.box/<CR>
+
+" zoomt auch grafiken mit
+noremap zi z<S-i>
+noremap zo z<S-o>
+
+" history ist H und L
+noremap <C-o> <Nop>
+
+" annoying
+no <C-q> <Nop>
+nno <C-q> <Nop>
+vno <C-q> <Nop>
+ino <C-q> <Nop>
+cno <C-q> <Nop>
+
+map q <Nop>
+
+" a und strg-a:
+noremap s a
+
+" increment numbers in URIs:
+noremap a <C-a>
+noremap <C-1> <C-a>
+noremap <C-!> <C-x>
+map <C-2>  :inc2 <CR>
+map <C-\"> :dec2 <CR>
+map <C-3>  :inc3 <CR>
+map <C-§>  :dec3 <CR>
+map <C-$>  :inc4 <CR>
+map <C-4>  :dec4 <CR>
+
+
+" Alles markieren:
+noremap <c-a> i<C-a>
+" imap <c-a> i<C-a>
+" noremap <C-c> i<C-c>
+
+" Seiten-Info:
+map <silent> <C-i> :dia pageinfo<CR>
+
+" Menu-Leisten Aus- / Einblenden:
+" map <A-Up>   :set go+=nmbBT<CR>
+" map <A-Down> :set go-=nmbBT<CR>
+" map <silent> <A-Up>   :set gui=none,tabs,addons,menu,navigation,bookmarks<CR>
+map <silent> <A-Up>   :set gui=none,tabs,addons,menu,navigation<CR>
+map <silent> <A-Down> :set gui=none,tabs,addons<CR>
+
+" zwischen Tabs wechseln:
+noremap <C-right> :bn<CR>
+noremap <C-left>  :bp<CR>
+" map <silent> <C-h> :bp<CR>
+" map <silent> <C-l> :bn<CR>
+
+" Tabs nach links / rechts verschieben:
+map <silent> <C-h> :tabmove! -1<CR>
+map <silent> <C-l> :tabmove! +1<CR>
+
+" Such-Hervorhebungen wieder entfernen:
+map <silent> <A-n> :nohl<CR>
+
+
+" CSS ein-/ ausschalten:
+map <silent> ! :set invum<CR>
+
+" Abkürzungen für die Kommandozeile:
+" cabbrev ctan http://www.ctan.org/tex-archive/help/Catalogue/alpha.html
+
+" vim: set ft=vim:
+

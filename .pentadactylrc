@@ -1,0 +1,86 @@
+"hg6880
+
+loadplugins '\.(js|penta)$'
+group user
+
+:colorscheme obsidian
+
+" Settings:
+" set activate=quickmark,paste
+" set complete=slfb
+" set showtabline
+set complete=slf
+set autocomplete=
+" set noscrollbars
+" set hlsearch
+" set tabnumbers
+set titlestring=
+set novisualbell
+" set focuscontent
+" set showstatuslinks=2
+" set gui=none,tabs,addons
+set hintinputs=label,value,name
+
+" z.T. von http://www.vimperl.de/os/vimperator.html#vimperatorrc
+" Schnelleres Scrolling :
+map -builtin j 4j
+map -builtin k 4k
+map -builtin <C-j> 10j
+map -builtin <C-k> 10k
+
+" routerUI:
+map <c-f> :tabopen http://fritz.box/<CR>
+
+" zoomt auch grafiken mit
+map -builtin yi z<S-i>
+map -builtin yo z<S-o>
+map -builtin yy zz
+
+" history ist H und L
+map -builtin <C-o> <Nop>
+
+" a und strg-a:
+map -builtin s a
+
+" increment numbers in URIs:
+map -builtin a <C-a>
+map -builtin <C-1> <C-a>
+map -builtin <C-!> <C-x>
+map <C-2>  :inc2 <CR>
+map <C-\"> :dec2 <CR>
+map <C-3>  :inc3 <CR>
+map <C-§>  :dec3 <CR>
+map <C-$>  :inc4 <CR>
+map <C-4>  :dec4 <CR>
+
+
+" Alles markieren:
+map -builtin <c-a> i<C-a>
+" imap <c-a> i<C-a>
+" noremap <C-c> i<C-c>
+
+" Seiten-Info:
+map <silent> <C-i> :dia pageinfo<CR>
+
+" Menu-Leisten Aus- / Einblenden:
+"map <silent> <A-Up>   :set gui=none,tabs,addons,menu,navigation,bookmarks<CR>
+"map <silent> <A-Down> :set gui=none,tabs,addons<CR>
+map <silent> <A-Up>   :tbs Bookmarks Toolbar<CR> :tbs Menu Bar<CR> :tbs Navigation Toolbar<CR>
+map <silent> <A-Up>   :tbh Bookmarks Toolbar<CR> :tbh Menu Bar<CR> :tbh Navigation Toolbar<CR>
+
+" Tabs nach links / rechts verschieben:
+map <silent> <C-h> :tabmove! -1<CR>
+map <silent> <C-l> :tabmove! +1<CR>
+
+" Such-Hervorhebungen wieder entfernen:
+map <silent> <A-n> :nohl<CR>
+
+
+" CSS ein-/ ausschalten:
+map <silent> ! :set invum<CR>
+
+" Abkürzungen für die Kommandozeile:
+" cabbrev ctan http://www.ctan.org/tex-archive/help/Catalogue/alpha.html
+
+" vim: set ft=pentadactyl:
+
