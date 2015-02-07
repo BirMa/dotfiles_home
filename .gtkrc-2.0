@@ -12,4 +12,4 @@ gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
 gtk-color-scheme="fg_color:#D4D4D4\nbg_color:#333333\nselected_fg_color:#ffffff\nbase_color:#474747\nselected_bg_color:#0081DE\ntext_color:#D4D4D4\n"
-include "/home/mx/.gtkrc-2.0.mine"
+gtk-can-change-accels = 1
