@@ -5,7 +5,7 @@
 # like .profile, but only with X-related stuff
 #
 
-SESSION_AWESOME='/usr/bin/awesome -c /home/mw/.config/awesome/rc.lua'
+SESSION_AWESOME="/usr/bin/awesome -c ${HOME}/.config/awesome/rc.lua"
 SESSION_XFCE='xfce4-session'
 
 ####### debug helper funcs ##################################################
