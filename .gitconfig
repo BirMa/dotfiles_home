@@ -3,3 +3,12 @@
 	email = martin_os@birnthaler.de
 [push]
 	default = simple
+[core]
+	editor = vim
+[merge]
+	tool = gvimdiff
+[color]
+	diff = auto
+	interactive = auto
+	branch = auto
+	status = auto
