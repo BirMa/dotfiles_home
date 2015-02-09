@@ -51,9 +51,9 @@ _xinitrc_print_post 'dbus_test'
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #_xinitrc_print_post 'polkit-gnome-authentication-agent-1'
 
-_xinitrc_print_pre 'lxpolkit'
-/usr/lib/lxpolkit/lxpolkit &
-_xinitrc_print_post 'lxpolkit'
+#_xinitrc_print_pre 'lxpolkit'
+#/usr/lib/lxpolkit/lxpolkit &
+#_xinitrc_print_post 'lxpolkit'
 
 #_xinitrc_print_pre 'gnome-keyring-daemon'
 #gnome-keyring-daemon --start &
