@@ -98,7 +98,7 @@ eject_cmd = "eject -T"
 killallFlash_cmd = "killall plugin-container"
 killallFirefox_cmd = "killall firefox"
 
-lock_screen_cmd = "slimlock"
+lock_screen_cmd = ""
 
 suspend_disk_cmd = "suspend_disk"
 suspend_ram_cmd = "suspend_ram"
@@ -373,7 +373,6 @@ for s = 1, screen.count() do
 
   -- Widgets that are aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
-  --right_layout:add(volchg.wid) -- replaced by pasystray
   if s == 1 then right_layout:add(wibox.widget.systray()) end
   right_layout:add(mytextclock)
   right_layout:add(mylayoutbox[s])
@@ -399,9 +398,9 @@ root.buttons(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-  -- quit and restart awesome
+  -- awesome
   awful.key({ modkey, "Control"       }, "r", awesome.restart),
-  awful.key({ modkey, "Shift"         }, "q", awesome.quit),
+  awful.key({ modkey, "Control"       }, "q", awesome.quit),
 
   -- tag navigation
   awful.key({ modkey,                 }, "Left",   awful.tag.viewprev       ),
@@ -623,13 +622,13 @@ clientkeys = awful.util.table.join(
 -- Be careful: We use keycodes to make this work on any keyboard layout.
 -- Following code should map on the number-keys on the top row of your keyboard.
 
--- 9 + nrOfTag = keycodeForTag
+-- 9 + # of tag = keycodeForTag
 KEYCODEOFFS = 9
 
 -- Limit nr. of accessible tags via keys
-MAXTAGKEY = 13 -- here: 1,...,0,-,=,<BS>
+MAXTAGKEY = 13 -- here: 1,...,9,0,-,=,<BS>
 
--- Compute the maximum number of digit we need, limited to 9
+-- Compute the maximum number of digits we need
 keynumber = 0
 for s = 1, screen.count() do
   keynumber = math.min(MAXTAGKEY, math.max(#tags[s], keynumber))
@@ -696,7 +695,7 @@ awful.rules.rules = {
 
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
-      focus = awful.client.focus.filter,
+      focus        = awful.client.focus.filter,
       keys         = clientkeys,
       buttons      = clientbuttons
     }
@@ -707,9 +706,6 @@ awful.rules.rules = {
     rule       = { class = "Audacious" },
     properties = { size_hints_honor = false }
   }, {
-    rule       = { class = "MPlayer" },
-    properties = { floating = true }
-  }, {
     rule       = { class = "feh" },
     properties = { floating = true }
   }, {
@@ -717,9 +713,6 @@ awful.rules.rules = {
     properties = { floating = true }
   }, {
     rule       = { class = "Pidgin" },
-    properties = { floating = true }
-  }, {
-    rule       = { class = "SpeedCrunch" },
     properties = { floating = true }
   }, {
     rule       = { class = "libreoffice" },
@@ -809,21 +802,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- {{{ Hooks
 timer_low = timer({ timeout = 10 })
--- timer_low:connect_signal("timeout", function() volchg.mixcmd() end)
+-- timer_low:connect_signal("timeout", function() awful.util.spawn("") end)
 timer_low:start()
 -- Hooks }}}
 
--- Autorun programs
+-- {{{ Autorun programs
 autorun = true
 autorunApps = 
 { 
   "awesome_autostart",
   "npd start",
-  "conkys_start",
 }
 if autorun then
   for n = 1, #autorunApps do
     awful.util.spawn(autorunApps[n])
   end
 end
-
+-- Autorun }}}

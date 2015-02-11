@@ -1,12 +1,7 @@
 #!/bin/sh
 #
-# Executed by startx (slim)
+# Executed by startx (i.e. slim)
 #
-# like .profile, but only with X-related stuff
-#
-
-SESSION_AWESOME="/usr/bin/awesome -c ${HOME}/.config/awesome/rc.lua"
-SESSION_XFCE='xfce4-session'
 
 ####### debug helper funcs ##################################################
 _xinitrc_print_pre() {
@@ -21,47 +16,29 @@ _xinitrc_print_post() {
 _xinitrc_print_pre
 
 
+_xinitrc_print_pre 'etc_xinitrc.d'
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+_xinitrc_print_post 'etc_xinitrc.d'
+
+
 # disable beep (X-style)
 xset b 0 &
 
 # set the key repeat rate and delay to my fav-volumes (X-style)
 xset r rate 250 30 &
 
-# source .profile (no beeping etc.)
-if [ -f "$HOME/.profile" ]; then
-  . $HOME/.profile
-fi
+# source .profile not necessary without graphical login manager
+#if [ -f "$HOME/.profile" ]; then
+#  . $HOME/.profile
+#fi
 
 
 ####### start some useful things before the WM ##############################
-
-# TODO: Why start dbus in .xinitrc?
-_xinitrc_print_pre 'dbus_test'
-# test for an existing dbus daemon, just to be safe
-if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
-  ## if not found, launch a new one
-  _xinitrc_print_pre 'dbus'
-  eval `dbus-launch --exit-with-session --sh-syntax`
-  export DBUS_SESSION_BUS_PID
-  _xinitrc_print_post 'dbus'
-fi
-_xinitrc_print_post 'dbus_test'
-
-#_xinitrc_print_pre 'polkit-gnome-authentication-agent-1'
-#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-#_xinitrc_print_post 'polkit-gnome-authentication-agent-1'
-
-#_xinitrc_print_pre 'lxpolkit'
-#/usr/lib/lxpolkit/lxpolkit &
-#_xinitrc_print_post 'lxpolkit'
-
-#_xinitrc_print_pre 'gnome-keyring-daemon'
-#gnome-keyring-daemon --start &
-#_xinitrc_print_post 'gnome-keyring-daemon'
-
-#_xinitrc_print_pre 'pulseaudio'
-#pulseaudio --start &
-#_xinitrc_print_post 'pulseaudio'
 
 _xinitrc_print_pre 'bash' 'devmon'
 devmon --sync --exec-on-drive 'notify-send "mount %l" "<b>%f</b> => <b>%d</b>"' --exec-on-unmount 'notify-send "unmount %l" "<b>%f</b> => <b>%d</b>"' --exec-on-remove 'notify-send "remove <b>%f</b>"' &
@@ -69,25 +46,37 @@ _xinitrc_print_post 'bash' 'devmon'
 
 #############################################################################
 
-arg_1=$1
 
-# slim keeps messing $1 up; hard code this:
-arg_1=awesome
+session=${1:-awesome}
 
-# exec window manager of my choice
-case $arg_1 in
-  awesome)
-    _xinitrc_print_pre 'awesome'
-    exec $SESSION_AWESOME
-    _xinitrc_print_post 'awesome'
-    ;;
-  xfce4)
-    _xinitrc_print_pre 'xfce4-session'
-    exec $SESSION_XFCE
-    _xinitrc_print_post 'xfce4-session'
-    ;;
-  *)
-    echo "xinitrc: ERROR: '$arg_1' seems to be nonsense; doing nothing..."
+_xinitrc_print_pre 'WM'
+case $session in
+    awesome           ) exec "awesome";;
+    bspwm             ) exec "bspwm";;
+    catwm             ) exec "catwm";;
+    cinnamon          ) exec "cinnamon-session";;
+    dwm               ) exec "dwm";;
+    enlightenment     ) exec "enlightenment_start";;
+    ede               ) exec "startede";;
+    fluxbox           ) exec "startfluxbox";;
+    gnome             ) exec "gnome-session";;
+    gnome-classic     ) exec "gnome-session --session=gnome-classic";;
+    i3|i3wm           ) exec "i3";;
+    icewm             ) exec "icewm-session";;
+    jwm               ) exec "jwm";;
+    kde               ) exec "startkde";;
+    mate              ) exec "mate-session";;
+    monster|monsterwm ) exec "monsterwm";;
+    notion            ) exec "notion";;
+    openbox           ) exec "openbox-session";;
+    unity             ) exec "unity";;
+    xfce|xfce4        ) exec "xfce4-session";;
+    xmonad            ) exec "xmonad";;
+    *)
+    echo "xinitrc: ERROR: '$arg_1' seems to be nonsense; lets try running it as a command! ..."
+    exec $1
     ;;
 esac
 
+# We'l get here in case of error.
+_xinitrc_print_post 'WM'

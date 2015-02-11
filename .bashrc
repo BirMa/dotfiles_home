@@ -12,3 +12,10 @@ fi
 # Do global things
 . /home/_gen_/gen.sh
 
+# Start x when not on X.
+if [[ -z $DISPLAY ]]; then
+  if [ $(yesNoQ --default yes --timeout 5 'startx ? ';echo $?) -eq 0 ]; then
+    echo -e 'starting X...\n'
+    startx
+  fi
+fi
