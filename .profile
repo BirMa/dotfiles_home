@@ -26,7 +26,10 @@ export VIMPERATOR_INIT=":source $VIMPERATOR_RUNTIME/vimperatorrc"
 export PENTADACTYL_RUNTIME="$XDG_CONFIG_HOME/pentadactyl"
 export PENTADACTYL_INIT=":source $PENTADACTYL_RUNTIME/pentadactylrc"
 
-export RXVT_SOCKET="$XDG_DATA_HOME/urxvt/urxvt-$HOST"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export NVIMINIT='let $MYNVIMRC="$XDG_CONFIG_HOME/nvim/nvimrc" | source $MYNVIMRC' # Currently not evaluated by nvim.
+
+export RXVT_SOCKET="$XDG_DATA_HOME/urxvt/urxvt-${USER}@${HOSTNAME}"
 
 #export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 
@@ -40,9 +43,12 @@ export GSTREGISTRY="$XDG_DATA_HOME/gstreamer/registry.bin"
 
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 
+export GIMP2_DIRECTORY="$XDG_DATA_HOME/gimp2"
+
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 
-export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+# Bad idea, my inputrc is in /etc/ and thats fine.
+#export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
@@ -65,9 +71,9 @@ export PIP_LOG_FILE="$XDG_DATA_HOME/pip/log"
 
 export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 
-#export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
+export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
-
+export WINEPREFIX="$XDG_DATA_HOME/wine"
 
 # disable beep (console-style)
 setterm -blength 0
