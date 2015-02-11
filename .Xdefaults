@@ -12,6 +12,14 @@ URxvt.scrollTtyKeypress: true
 URxvt.jumpScroll: true
 URxvt.scrollWithBuffer: true
 
+!URxvt.meta8: true
+!URxvt*tripleclickwords: false
+
+! URxvt.lineSpace: 0
+URxvt.letterSpace: -1
+
+! URxvt.modifier: mod5
+
 URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=15:autohint=true
 URxvt.boldFont: xft:Bitstream Vera Sans Mono:pixelsize=15:bold:autohint=true
 URxvt.italicFont: xft:Bitstream Vera Sans Mono:pixelsize=15:italic:autohint=true
