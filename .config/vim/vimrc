@@ -4,11 +4,15 @@ set nocompatible
 " required by vundle
 filetype off
 
+" Something fishy is going on when using vim+vundle with certain shells, enforce sh.
+set shell=sh
+
+" My runtimepath config
+set runtimepath=$XDG_CONFIG_HOME/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,$XDG_CONFIG_HOME/vim/after
+
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+set rtp+=$XDG_CONFIG_HOME/vim/bundle/Vundle.vim
+call vundle#begin(expand('$XDG_CONFIG_HOME').'/vim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -21,9 +25,9 @@ Bundle 'vim-scripts/shuffle.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 
 " For YCM
 autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
@@ -32,11 +36,11 @@ autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
 set autoindent
 set backspace=indent,eol,start
 set backup
-set backupdir=~/.nvim/backup " where to put backup files
+set backupdir=$XDG_CACHE_HOME/vim/backup " where to put backup files
 set complete=.,w,b,u,t,i,d
 set completeopt=menuone,longest,preview
-set directory=~/.nvim/tmp " directory to place swap files in
-set viminfo='50,s1000,h,n~/.nvim/nviminfo
+set directory=$XDG_CACHE_HOME/vim/tmp " directory to place swap files in
+set viminfo='50,s1000,h,n$XDG_CACHE_HOME/vim/viminfo
 set encoding=utf-8
 set expandtab
 set fillchars=vert:\ ,stl:\ ,stlnc:\ ,

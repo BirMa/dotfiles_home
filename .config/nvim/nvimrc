@@ -5,8 +5,8 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=$XDG_CONFIG_HOME/nvim/bundle/Vundle.vim
+call vundle#begin('$XDG_CONFIG_HOME/nvim/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -29,14 +29,15 @@ filetype plugin indent on    " required
 autocmd FileType c nnoremap <buffer> <silent> <C-]> :YcmCompleter GoTo<cr>
 
 
+set runtimepath=$XDG_CONFIG_HOME/nvim,/usr/share/vim/vimfiles,/usr/share/nvim/runtime,/usr/share/vim/vimfiles/after,$XDG_CONFIG_HOME/nvim/after
 set autoindent
 set backspace=indent,eol,start
 set backup
-set backupdir=~/.vim/backup " where to put backup files
+set backupdir=$XDG_CACHE_HOME/nvim/backup " where to put backup files
 set complete=.,w,b,u,t,i,d
 set completeopt=menuone,longest,preview
-set directory=~/.vim/tmp " directory to place swap files in
-set viminfo='50,s1000,h,n~/.vim/viminfo
+set directory=$XDG_CACHE_HOME/nvim/tmp " directory to place swap files in
+set viminfo='50,s1000,h,n$XDG_CACHE_HOME/nvim/nviminfo
 set encoding=utf-8
 set expandtab
 set fillchars=vert:\ ,stl:\ ,stlnc:\ ,
