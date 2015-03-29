@@ -1,0 +1,48 @@
+color0 00b3ad
+color1 2ab3ff
+color2 00213e
+color3 007b94
+color4 005b58
+
+update_interval 17
+
+cpu_avg_samples 2
+net_avg_samples 2
+diskio_avg_samples 2
+
+alignment top_right
+background yes
+border_width 0
+default_color 00b3ad #color0
+default_outline_color 2ab3ff #color1
+default_shade_color 00213e #color2
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades yes
+use_xft yes
+xftalpha 0.8
+xftfont DejaVu Sans Mono:size=11
+gap_x 8
+gap_y 85
+minimum_size 435 5
+maximum_width 435
+no_buffers yes
+double_buffer no
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window no
+own_window_class Conky_mid
+own_window_type desktop
+stippled_borders 1
+uppercase no
+use_spacer right
+show_graph_scale no
+show_graph_range no
+
+TEXT
+${color3}mount /home: $color${fs_used /home} / ${fs_size /home}
+${fs_bar 4,390 /home} ${fs_used_perc /home}%
+${color3}mount /:     $color$fs_used / $fs_size
+${fs_bar 4,390} ${fs_used_perc}%
