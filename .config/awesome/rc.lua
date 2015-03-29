@@ -286,7 +286,7 @@ mynetwidget_up:set_color({ type = "linear", from = { 0, 0 }, to = { 50, 0 }, sto
 vicious.register(mynetwidget_up, vicious.widgets.net, "${enp0s20u1 up_b}", 1.2)
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock(" %d.%m [%a] %H:%M [+1] ", 30)
+mytextclock = awful.widget.textclock(" %d.%m [%a] %H:%M [+2] ", 30)
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -531,13 +531,16 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey,                 }, "F2",       function () awful.util.spawn("thunderbird") end),
 
   -- launch firefox
-  awful.key({ modkey,                 }, "F3",       function () awful.util.spawn("firefox") end),
+  awful.key({ modkey,                 }, "F3",       function () awful.util.spawn("firefox -P default") end),
 
   -- launch firefox profile plain
   awful.key({ modkey, "Shift"         }, "F3",       function () awful.util.spawn("firefox -P plain") end),
 
   -- launch chromium
-  awful.key({ modkey,                 }, "F4",       function () awful.util.spawn("chromium") end),
+  awful.key({ modkey,                 }, "F4",       function () awful.util.spawn("chromium_profileDefault") end), -- TODO: figure out how to expand environment vars in this script so we can directly use chromium --user-data-dir="$XDG_CONFIG_HOME/chromium_default"
+
+  -- launch chromium
+  awful.key({ modkey, "Shift"         }, "F4",       function () awful.util.spawn("chromium_profileWork") end), -- TODO: figure out how to expand environment vars in this script so we can directly use chromium --user-data-dir="$XDG_CONFIG_HOME/chromium_work"
 
   -- launch audacious
   awful.key({ modkey,                 }, "a",        function () awful.util.spawn("audacious") end)
