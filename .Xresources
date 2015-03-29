@@ -1,6 +1,13 @@
-! configuration for xterm (better to use URxvt instead)
+!Font rendering options for apps that ignore fontconfig (like rxvt)
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+!Xft.hintstyle: hintnone
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
+! configuration for xterm (better to use URxvt instead)
 xterm*font:  -misc-fixed-medium-r-normal--15-*-*-*-*-*-*-1
 !XTerm*faceName: monospace:7
 !xterm*font:	DejaVu Sans Mono:pixelsize=20

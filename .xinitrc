@@ -32,6 +32,10 @@ xset b 0 &
 # set the key repeat rate and delay to my fav-volumes (X-style)
 xset r rate 250 30 &
 
+# Prepend my personal font folders to Xorg's list of known font paths
+xset +fp "$XDG_DATA_HOME/fonts/truetype"
+xset +fp "$XDG_DATA_HOME/fonts/type1"
+
 # source .profile not necessary without graphical login manager
 #if [ -f "$HOME/.profile" ]; then
 #  . $HOME/.profile
