@@ -1,8 +1,8 @@
-color0 00b3ad
-color1 2ab3ff
-color2 00213e
-color3 007b94
-color4 005b58
+color0 2ab300
+color1 262626
+color2 2a3e00
+color3 568000
+color4 3e5b00
 
 update_interval 17
 
@@ -13,21 +13,21 @@ diskio_avg_samples 2
 alignment top_right
 background yes
 border_width 0
-default_color 00b3ad #color0
-default_outline_color 2ab3ff #color1
-default_shade_color 00213e #color2
+default_color 2ab300 #color0
+default_outline_color 262626 #color1
+default_shade_color 2a3e00 #color2
 draw_borders no
 draw_graph_borders no
 draw_outline no
-draw_shades yes
+draw_shades no
 use_xft yes
 xftalpha 0.8
 xftfont DejaVu Sans Mono:size=11
-gap_x 8
-gap_y 85
+gap_x 5
+gap_y 73
 minimum_size 435 5
 maximum_width 435
-no_buffers yes
+no_buffers no
 double_buffer no
 out_to_console no
 out_to_stderr no
