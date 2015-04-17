@@ -82,5 +82,5 @@ case $session in
     ;;
 esac
 
-# We'l get here in case of error.
+# We'll get here in case of error.
 _xinitrc_print_post 'WM'
