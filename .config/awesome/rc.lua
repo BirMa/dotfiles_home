@@ -98,7 +98,7 @@ eject_cmd = "eject -T"
 killallFlash_cmd = "killall plugin-container"
 killallFirefox_cmd = "killall firefox"
 
-lock_screen_cmd = ""
+lock_screen_cmd = "slock"
 
 suspend_disk_cmd = "suspend_disk"
 suspend_ram_cmd = "suspend_ram"
@@ -533,8 +533,8 @@ globalkeys = awful.util.table.join(
   -- launch firefox
   awful.key({ modkey,                 }, "F3",       function () awful.util.spawn("firefox -P default") end),
 
-  -- launch firefox profile plain
-  awful.key({ modkey, "Shift"         }, "F3",       function () awful.util.spawn("firefox -P plain") end),
+  -- launch firefox profile manager
+  awful.key({ modkey, "Shift"         }, "F3",       function () awful.util.spawn("firefox -P") end),
 
   -- launch chromium
   awful.key({ modkey,                 }, "F4",       function () awful.util.spawn("chromium_profileDefault") end), -- TODO: figure out how to expand environment vars in this script so we can directly use chromium --user-data-dir="$XDG_CONFIG_HOME/chromium_default"
