@@ -12,3 +12,6 @@
 	interactive = auto
 	branch = auto
 	status = auto
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+
