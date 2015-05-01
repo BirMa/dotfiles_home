@@ -814,7 +814,8 @@ autorun = true
 autorunApps = 
 { 
   "awesome_autostart",
-  "npd start",
+  "xset -dpms",
+  "xset s off",
 }
 if autorun then
   for n = 1, #autorunApps do
