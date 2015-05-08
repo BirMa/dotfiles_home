@@ -2,8 +2,11 @@
 # global configration, tweaks, ...
 #
 
+# 'multiple include prevention'
 [ -n "$PROFILE_DEFINED" ] && return
 export PROFILE_DEFINED="1"
+
+umask 0077
 
 # set PATH so it include my private bins if they exist
 if [ -d "$HOME/.local/bin" ] ; then
