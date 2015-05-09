@@ -1,4 +1,4 @@
-gtk-theme-name="OMG-Dark"
+gtk-theme-name="DeLorean-Dark-3.16"
 gtk-font-name="Sans 10"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_ICONS
@@ -11,5 +11,5 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
-gtk-color-scheme="fg_color:#D4D4D4\nbg_color:#333333\nselected_fg_color:#ffffff\nbase_color:#474747\nselected_bg_color:#0081DE\ntext_color:#D4D4D4\n"
+#gtk-color-scheme="fg_color:#D4D4D4\nbg_color:#333333\nselected_fg_color:#ffffff\nbase_color:#474747\nselected_bg_color:#0081DE\ntext_color:#D4D4D4\n"
 gtk-can-change-accels = 1
