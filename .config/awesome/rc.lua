@@ -508,11 +508,11 @@ globalkeys = awful.util.table.join(
   -- launch eject
   awful.key({ modkey,                 }, "y",        function () awful.util.spawn(eject_cmd) end),
 
-  -- kill firefox flashplugins
-  awful.key({ modkey, "Shift"         }, "f",        function () awful.util.spawn(killallFlash_cmd) end),
-
   -- kill firefox
-  awful.key({ modkey, "Shift"         }, "v",        function () awful.util.spawn(killallFirefox_cmd) end),
+  awful.key({ modkey, "Shift"         }, "f",        function () awful.util.spawn(killallFirefox_cmd) end),
+
+  -- kill firefox flashplugins
+  -- awful.key({ modkey, "Shift"         }, "v",        function () awful.util.spawn(killallFlash_cmd) end),
 
   -- launch htop
   awful.key({ "Control", "Shift"      }, "Escape",   function () awful.util.spawn("urxvt -e htop") end),
