@@ -25,6 +25,8 @@ if [ -d "$HOME/share/adt-bundle-linux-x86_64/sdk/tools/" ] ; then
   PATH="$PATH:$HOME/share/adt-bundle-linux-x86_64/sdk/tools/"
 fi
 
+# disable beep (console-style)
+setterm -blength 0
 
 # see more at: https://github.com/woegjiub/.config/blob/master/bash/xdg.sh
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -87,7 +89,4 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export XAUTHORITY="$XDG_DATA_HOME/Xauthority"
 
 export WINEPREFIX="$XDG_DATA_HOME/wine"
-
-# disable beep (console-style)
-setterm -blength 0
 
