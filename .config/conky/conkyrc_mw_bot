@@ -47,7 +47,7 @@ ${swapbar 4,390} $swapperc%
 ${color3}RAM: $color$memperc%  $mem / $memmax ($memeasyfree Free/Cache)
 ${membar 4,390} $memperc%
 ${memgraph 20,435 color4 color0}
-${color3}CPU: 1 $color${cpu cpu1}% ${color3}      2 $color${cpu cpu2}% ${color3}      3 $color${cpu cpu3}% ${color3}      4 $color${cpu cpu4}%
+${color3}CPU: 1 $color${cpu cpu1}% ${color3}      2 $color${cpu cpu2}% ${color3}     3 $color${cpu cpu3}% ${color3}     4 $color${cpu cpu4}%
 ${cpugraph cpu1 20,101} ${cpugraph cpu2 20,101} ${cpugraph cpu3 20,101} ${cpugraph cpu4 20,101}
 ${color3}Eth: ↑ $color${upspeed enp0s20u1}$alignr${color3}↓ $color${downspeed enp0s20u1}              
 ${upspeedgraph enp0s20u1 20,195 color4 color0}$alignr${downspeedgraph enp0s20u1 20,195 color0 color4}
