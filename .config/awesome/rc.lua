@@ -105,7 +105,7 @@ suspend_ram_cmd = "suspend_ram"
 shutdown_cmd = "systemctl poweroff"
 reboot_cmd  = "systemctl reboot"
 
-etc_shutdown_cmd = "etc_shutdown"
+etc_shutdown_cmd = "gksu K_etc_shutdown"
 lock_suspend_disk_cmd = "suspend_disk l"
 lock_suspend_ram_cmd = "suspend_ram l"
 
