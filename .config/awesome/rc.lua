@@ -90,15 +90,21 @@ editor_cmd = "gvim"
 editor_root_cmd = "gksu gvim"
 
 -- Tool launches
-maxBrightness_cmd = "maxBrightness"
-minBrightness_cmd = "minBrightness"
+inc_display_brightness = "xbacklight -inc 1 -time 0"
+dec_display_brightness = "xbacklight -dec 1 -time 0"
+maxBrightness_cmd = "xbacklight -set 100 -time 0"
+minBrightness_cmd = "xbacklight -set 3 -time 0"
+
 kbd_switch2_de_cmd = "setxkbmap -layout de"
 kbd_switch2_us_cmd = "setxkbmap -layout us -variant altgr-intl"
+
 eject_cmd = "eject -T"
+
 killallFlash_cmd = "killall plugin-container"
 killallFirefox_cmd = "killall firefox"
 
 lock_screen_cmd = "slock"
+
 
 suspend_disk_cmd = "suspend_disk"
 suspend_ram_cmd = "suspend_ram"
@@ -463,6 +469,10 @@ globalkeys = awful.util.table.join(
   -- sound mute/unmute
   awful.key({                         }, "XF86AudioMute", function () volume.toggleMute() end),
 
+  -- Display brightness control
+  awful.key({                         }, "XF86MonBrightnessUp", function () awful.util.spawn(inc_display_brightness) end),
+  awful.key({                         }, "XF86MonBrightnessDown", function () awful.util.spawn(dec_display_brightness) end),
+  
   -- Removable Volume management (devmon)
 
   -- unmount/remove all removable devices
