@@ -235,31 +235,21 @@ mymainmenu = awful.menu ({
 
 -- volume change
 volume = {}
-volume.isMute = false
-volume.ALSAcardid = 1
-volume.ALSAchanMaster = "Master"
-volume.PAsinkName = "alsa_output.pci-0000_00_1b.0.analog-stereo"
+volume.PAsinkName = "alsa_output.pci-0000_00_1b.0.analog-stereo" -- Would be awesome if we could dynamically figure out the default sink...
 
 volume.up = function ()
-  fd = io.popen("amixer -c " .. volume.ALSAcardid .. " sset " .. volume.ALSAchanMaster .. " 1%+")
+  fd = io.popen("pactl " .. " set-sink-volume " .. volume.PAsinkName .. " +1%")
   fd:close()
 end
 
 volume.down = function ()
-  fd = io.popen("amixer -c " .. volume.ALSAcardid .. " sset " .. volume.ALSAchanMaster .. " 1%-")
+  fd = io.popen("pactl " .. " set-sink-volume " .. volume.PAsinkName .. " -1%")
   fd:close()
 end
 
 volume.toggleMute = function ()
-  if volume.isMute then
-    fd = io.popen("pacmd set-sink-mute " .. volume.PAsinkName .. " false")
-    fd:close()
-    volume.isMute = false
-  else
-    fd = io.popen("pacmd set-sink-mute " .. volume.PAsinkName .. " true")
-    fd:close()
-    volume.isMute = true
-  end
+  fd = io.popen("pactl " .. " set-sink-mute " .. volume.PAsinkName .. " toggle")
+  fd:close()
 end
 
 -- cpu usage graph
