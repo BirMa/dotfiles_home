@@ -14,7 +14,7 @@ theme.font          = "sans 10"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_urgent     = "#316ac1"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
@@ -36,7 +36,7 @@ theme.border_marked = "#91231c"
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
 -- mouse_finder_[color|timeout|animate_timeout|radius|factor]
 -- Example:
---theme.taglist_bg_focus = "#ff0000"
+--theme.taglist_bg_focus = "#316ac1"
 
 -- Display the taglist squares
 theme.taglist_squares_sel   = G_T .. "taglist/squarefw.png"

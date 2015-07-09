@@ -90,8 +90,8 @@ editor_cmd = "gvim"
 editor_root_cmd = "gksu gvim"
 
 -- Tool launches
-inc_display_brightness = "xbacklight -inc 1 -time 0"
-dec_display_brightness = "xbacklight -dec 1 -time 0"
+inc_display_brightness = "xbacklight -inc 1 -time 30"
+dec_display_brightness = "xbacklight -dec 1 -time 30"
 maxBrightness_cmd = "xbacklight -set 100 -time 0"
 minBrightness_cmd = "xbacklight -set 3 -time 0"
 
@@ -534,7 +534,7 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey,                 }, "F3",       function () awful.util.spawn("firefox -P default") end),
 
   -- launch firefox profile manager
-  awful.key({ modkey, "Shift"         }, "F3",       function () awful.util.spawn("firefox -P") end),
+  awful.key({ modkey, "Shift"         }, "F3",       function () awful.util.spawn("firefox --ProfileManager") end),
 
   -- launch chromium
   awful.key({ modkey,                 }, "F4",       function () awful.util.spawn("chromium_profileDefault") end), -- TODO: figure out how to expand environment vars in this script so we can directly use chromium --user-data-dir="$XDG_CONFIG_HOME/chromium_default"
