@@ -8,7 +8,7 @@ filetype off
 set shell=sh
 
 " My runtimepath config
-set runtimepath=$XDG_CONFIG_HOME/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,$XDG_CONFIG_HOME/vim/after
+set runtimepath=$XDG_CONFIG_HOME/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim74
 
 " set the runtime path to include Vundle and initialize
 set rtp+=$XDG_CONFIG_HOME/vim/bundle/Vundle.vim
@@ -152,6 +152,15 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
+
+" move tabs left and right
+map <silent> <c-l> :+tabmove<CR>
+map <silent> <c-h> :-tabmove<CR>
+unmap <c-h>
+
+" switch to tab on the left and right
+map <silent> <c-right> :tabn<CR>
+map <silent> <c-left> :tabp<CR>
 
 " use ,F to jump to tag in a vertical split
 " nnoremap ,F :let word=expand(""):vsp:wincmd w:exec("tag ". word) <- invalid expression
