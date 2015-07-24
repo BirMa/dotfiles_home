@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Executed by startx (i.e. slim)
+# Executed by startx
 #
 
 ####### debug helper funcs ##################################################
@@ -77,9 +77,9 @@ case $session in
     xfce|xfce4        ) exec "xfce4-session";;
     xmonad            ) exec "xmonad";;
     *)
-    echo "xinitrc: ERROR: '$arg_1' seems to be nonsense; lets try running it as a command! ..."
-    exec $1
-    ;;
+      echo "xinitrc: ERROR: '$arg_1' seems to be nonsense; lets try running it as a command! ..."
+      exec $1
+      ;;
 esac
 
 # We'll get here in case of error.
