@@ -17,6 +17,15 @@ local naughty = require("naughty")
 local vicious = require("vicious")
 
 
+--- {{{ Early overrides
+
+naughty.config.presets.critical.bg = '#181b1f'
+naughty.config.presets.critical.fg = '#e75555'
+
+-- Early overrides }}}
+
+
+
 -- {{{ Helper functions
 
 local client_tag_moveRight  = function ()
@@ -39,7 +48,7 @@ local client_tag_moveLeft = function ()
   awful.tag.viewprev()
 end
 
-function echo (arg, title)
+function echo (title, arg)
   naughty.notify({
     preset = naughty.config.presets.critical,
     title = title,
