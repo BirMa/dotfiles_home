@@ -27,7 +27,7 @@ flags = [
 # General flags:
 '-Wall',
 '-Wextra',
-'-Werror',
+#'-Werror',
 '-fexceptions',
 
 # Defines:
@@ -35,7 +35,8 @@ flags = [
 
 # Language standard:
 '-std=c++11',
-#'-libstd=???',
+'-stdlib=libc++',
+'-lc++abi',
 '-xc++',
 
 # Includes:
