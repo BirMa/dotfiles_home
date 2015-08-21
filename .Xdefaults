@@ -1,4 +1,74 @@
-! configuration for URxvt
+!!!Font rendering options for apps that ignore fontconfig (like rxvt)
+!Xft.autohint: 0
+!Xft.lcdfilter: lcddefault
+!Xft.hintstyle: hintfull
+!!Xft.hintstyle: hintnone
+!Xft.hinting: 1
+!Xft.antialias: 1
+!Xft.rgba: rgb
+
+
+
+!! XTerm config
+
+! old configuration for xterm (better to use URxvt instead)
+!XTerm.font:  -misc-fixed-medium-r-normal--15-*-*-*-*-*-*-1
+!XTerm.faceName: monospace:7
+!XTerm.font:	DejaVu Sans Mono:pixelsize=20
+!XTerm.background: #000000
+!XTerm.foreground: #00FF00
+!XTerm.pointerColor: blue
+!XTerm.pointerColorBackground: white
+!XTerm.cursorColor: #00ff00
+!XTerm.internalBorder: 3
+!XTerm.loginShell: true
+!XTerm.scrollBar: false
+!XTerm.scrollKey: true
+!XTerm.saveLines: 4000
+!XTerm.multiClickTime: 250 
+
+!XTerm.color0: #2E3436
+!XTerm.color1: #CC0000
+!XTerm.color2: #4E9A06
+!XTerm.color3: #C4A000
+!XTerm.color4: #3465A4
+!XTerm.color5: #75507B
+!XTerm.color6: #06989A
+!XTerm.color7: #D3D7CF
+!XTerm.color8: #555753
+!XTerm.color9: #EF2929
+!XTerm.color10: #8AE234
+!XTerm.color11: #FCE94F
+!XTerm.color12: #729FCF
+!XTerm.color13: #AD7FA8
+!XTerm.color14: #34E2E2
+!XTerm.color15: #EEEEEC
+
+!! dkeg - canvasedpastel !!!!
+!http://www.xcolors.net/dl/dkeg%20-%20canvasedpastel
+!Xterm doesn't understand if you use XTerm.bla, gotta use *.bla
+*.background:       #170F0D
+*.foreground:       #746C48
+
+*.color0: #26251C
+*.color1: #323027
+*.color2: #3D4339
+*.color3: #443B2C
+*.color4: #534D35
+*.color5: #646756
+*.color6: #7B8574
+*.color7: #837B61
+*.color8: #999F91
+*.color9: #9B9773
+*.color10: #B2B08C
+*.color11: #C4BB8C
+*.color12: #C4B67A
+*.color13: #CFC995
+*.color14: #D3D4B6
+*.color15: #D6D3AC
+
+
+!! configuration for URxvt
 
 ! iso14755-enable-keys apparently can't be rebound (ctrs+shift); Disable it for better clipboard use.
 URxvt.iso14755: false
@@ -17,7 +87,7 @@ URxvt.jumpScroll: true
 URxvt.scrollWithBuffer: true
 
 !URxvt.meta8: true
-!URxvt*tripleclickwords: false
+!URxvt.tripleclickwords: false
 
 ! URxvt.lineSpace: 0
 URxvt.letterSpace: -1
@@ -97,4 +167,3 @@ URxvt.color14: #34E2E2
 
 ! white
 URxvt.color15: #EEEEEC
-
