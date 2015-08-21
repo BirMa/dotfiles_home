@@ -533,9 +533,6 @@ globalkeys = awful.util.table.join(
   -- launch speedcrunch
   awful.key({ modkey,                 }, "c",        function () awful.util.spawn("speedcrunch") end),
 
-  -- launch xfdesktop
-  awful.key({ modkey,                 }, "F1",       function () awful.util.spawn("xfdesktop") end),
-
   -- launch thunderbird
   awful.key({ modkey,                 }, "F2",       function () awful.util.spawn("thunderbird") end),
 
