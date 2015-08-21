@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " My Bundles :
 " repos on github
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/shuffle.vim'
 
 " All of your Plugins must be added before the following line
