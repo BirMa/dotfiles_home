@@ -47,6 +47,8 @@ cno <C-q> <Nop>
 
 map q <Nop>
 
+noremap <insert> <nop>
+
 " a und strg-a:
 noremap s a
 
